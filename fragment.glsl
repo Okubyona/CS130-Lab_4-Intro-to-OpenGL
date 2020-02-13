@@ -24,7 +24,7 @@ void main()
         specular = gl_LightSource[i].specular * gl_FrontMaterial.diffuse *
             * pow(max(dot(normalize(r), normalize(-position)), 0.0), gl_FrontMaterial.shininess);
 
-        color = ambient + diffuse + specular
+        color += ambient + diffuse + specular
     }
 
 
