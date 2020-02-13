@@ -1,4 +1,6 @@
 #include <GL/glew.h>
+#include <fstream>
+#include <sstream>
 #include "application.h"
 
 using namespace std;
