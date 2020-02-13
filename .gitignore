@@ -2,8 +2,8 @@
 #Compiler Generated Object Files
 *.o
 *.stackdump
-
+*.d
 #Executables
 *.exe
 *.out
-shader
+shaders

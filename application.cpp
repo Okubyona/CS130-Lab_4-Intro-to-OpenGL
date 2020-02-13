@@ -1,6 +1,7 @@
 #include <GL/glew.h>
 #include <fstream>
 #include <sstream>
+#include <string>
 #include "application.h"
 
 using namespace std;
@@ -56,15 +57,21 @@ GLuint loadShader(const char *vertexfilename, const char *fragmentfilename) {
   program = glCreateProgram();
 
   vertex_shader_id = glCreateShader(GL_VERTEX_SHADER);
-  const GLchar* shader_vertex = getTextFile(vertexfilename).c_str();
+
+  string string_vertex = getTextFile(vertexfilename);
+  const char* shader_vertex = string_vertex.c_str();
+
   glShaderSource(vertex_shader_id, 1, &shader_vertex, NULL);
   glCompileShader(vertex_shader_id);
-  glAttachShader(program, vertex_shader_id);
 
   fragment_shader_id = glCreateShader(GL_FRAGMENT_SHADER);
-  const GLchar* shader_frag = getTextFile(fragmentfilename).c_str();
+  string string_fragment = getTextFile(fragmentfilename);
+  const char* shader_frag = string_fragment.c_str();
+
   glShaderSource(fragment_shader_id, 1, &shader_frag, NULL);
   glCompileShader(fragment_shader_id);
+
+  glAttachShader(program, vertex_shader_id);
   glAttachShader(program, fragment_shader_id);
 
   glLinkProgram(program);
